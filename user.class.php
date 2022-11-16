@@ -22,6 +22,30 @@ class User {
                                             $this->firstname, $this->lastname);
         $preparedQuery->execute();
     }
+    public function login() : bool {
+        $query = "SELECT * FROM user WHERE login = ? LIMIT 1";
+        $db = new mysqli('localhost', 'root', '', 'uzytkownicy');
+        $preparedQuery = $db->prepare($query); 
+        $preparedQuery->bind_param('s', $this->login);
+        $preparedQuery->execute();
+        $result = $preparedQuery->get_result();
+        if($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $passwordHash = $row['password'];
+            if(password_verify($this->password, $passwordHash)) {
+                $this->id = $row['id'];
+                $this->firstname = $row['firstname'];
+                $this->lastname = $row['lastname'];
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
+
+
 
 ?>
