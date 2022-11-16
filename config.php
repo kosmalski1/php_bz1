@@ -1,4 +1,4 @@
 <?php
-$db = new mysqli('localhost', 'root', '', 'loginform');
+$db = new mysqli('localhost', 'root', '', 'uzytkownicy');
 
 ?>
