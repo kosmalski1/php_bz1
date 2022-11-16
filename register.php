@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -21,8 +20,11 @@
     </form>
 <?php
 if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
+    require_once('config.php');
     require_once('user.class.php');
     $user = new User($_REQUEST['login'], $_REQUEST['password']);
+    $user->setfirstname($_REQUEST['firstname']);
+    $user->setlastname($_REQUEST['lastname']);
     if($user->register()) {
         echo "Zarejestrowano poprawnie";
     } else {
