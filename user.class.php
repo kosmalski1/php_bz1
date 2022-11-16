@@ -49,7 +49,7 @@ class User {
         }
     }
     public function setfirstname(string $firstname) {
-        $this->firstName = $firstname;
+        $this->firstname = $firstname;
     }
     public function setlastname(string $lastname) {
         $this->lastname = $lastname;
