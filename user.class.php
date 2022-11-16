@@ -6,9 +6,9 @@ class User {
     private string $firstname;
     private string $lastname;
 
-    public function __construct()
-    {
-        
+    public function __construct(string $login, string $password) {
+        $this->login = $login;
+        $this->password = $password;
     }
 }
 ?>
