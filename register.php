@@ -4,7 +4,7 @@ require_once('config.php');
 
 if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
     if(empty($_REQUEST['login']) || empty($_REQUEST['password'])
-    || empty($_REQUEST['firstName']) || empty($_REQUEST['lastName'])) {
+    || empty($_REQUEST['firstname']) || empty($_REQUEST['lastname'])) {
         //podano pusty string jako jedną z wymaganych wartości
         $twig->display('message.html.twig', 
                         ['message' => "Nie podano wymaganej wartości"]);

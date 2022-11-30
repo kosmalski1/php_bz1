@@ -1,0 +1,8 @@
+{% include 'header.html.twig' %}
+Strona główna <br>
+    {% if user is defined %}
+        Jesteś zalogowany jako: {{user.getname()}}
+        <a href="/php_bz/logout/">Wyloguj</a>
+    {% endif %}
+   
+{% include 'footer.html.twig' %}
